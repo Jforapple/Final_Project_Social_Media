@@ -11,14 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('group_users', function (Blueprint $table) {
             $table->id();
-            $table->longText('body')->nullable();
+            $table->string('status', 25); // approved, pending
+            $table->string('role', 25);
+            $table->string('token', 1024)->nullable();
+            $table->timestamp('token_expire_date')->nullable();
+            $table->timestamp('token_used')->nullable();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('group_id')->constrained('groups');
-            $table->foreignId('deleted_by')->nullable()->constrained('user');
-            $table->timestamp('deleted_at')->nullable();
-            $table->timestamps();
+            $table->foreignId('created_by')->constrained('users');
+            $table->timestamp('created_at')->nullable();
         });
     }
 
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('group_users');
     }
 };
