@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug', 255);
             $table->string('cover_path', 1024)->nullable();
             $table->string('thumbnail_path', 1024)->nullable();
-            $table->boolean('auto_approval')->default(1);
+            $table->boolean('auto_approval')->default(true);
             $table->text('about')->nullable();
             $table->foreignId('user_id')->constrained('users');
             $table->timestamp('deleted_at')->nullable();
@@ -31,12 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Drop the foreign key constraint from the posts table
-        Schema::table('posts', function (Blueprint $table) {
-            $table->dropForeign(['group_id']); // This drops the foreign key constraint on the 'group_id' column
-        });
-
-        // Now drop the groups table
         Schema::dropIfExists('groups');
     }
 };

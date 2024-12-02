@@ -30,14 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Drop the foreign key constraints first
-        Schema::table('group_users', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);    // Drop the foreign key from the 'user_id' column
-            $table->dropForeign(['group_id']);   // Drop the foreign key from the 'group_id' column
-            $table->dropForeign(['created_by']); // Drop the foreign key from the 'created_by' column
-        });
-
-        // Now drop the group_users table
         Schema::dropIfExists('group_users');
     }
 };
