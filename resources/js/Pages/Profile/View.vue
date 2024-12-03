@@ -203,15 +203,15 @@ function followUser() {
                         <div class="flex justify-between items-center flex-1 p-4">
                             <div>
                                 <h2 class="font-bold text-lg">{{ user.name }}</h2>
-                                <p class="text-xs text-gray-500">{{ followerCount }} follower(s)</p>
+                                <p class="text-xs text-gray-500">{{ followerCount }} Followers</p>
                             </div>
 
                             <div v-if="!isMyProfile">
                                 <PrimaryButton v-if="!isCurrentUserFollower" @click="followUser">
-                                    Follow User
+                                    Follow
                                 </PrimaryButton>
                                 <DangerButton v-else @click="followUser">
-                                    Unfollow User
+                                    Unfollow
                                 </DangerButton>
                             </div>
                         </div>
@@ -260,7 +260,7 @@ function followUser() {
                                               class="shadow rounded-lg"/>
                             </div>
                             <div v-else class="text-center py-8">
-                                User does not have followers.
+                                The user does not have any followers.
                             </div>
                         </TabPanel>
                         <TabPanel>
@@ -275,7 +275,7 @@ function followUser() {
                                               class="shadow rounded-lg"/>
                             </div>
                             <div v-else class="text-center py-8">
-                                The user is not following to anybody
+                                The user is not following anybody.
                             </div>
                         </TabPanel>
                         <TabPanel>

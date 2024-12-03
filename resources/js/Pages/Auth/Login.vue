@@ -37,7 +37,7 @@ const submit = () => {
             <span class="text-gray-400 text-sm">or</span>
             <div class="flex justify-center">
                 <Link :href="route('register')" class="inline-block hover:underline">
-                    create new account
+                    Create new account
                 </Link>
             </div>
         </div>

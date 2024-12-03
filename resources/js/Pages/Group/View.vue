@@ -297,7 +297,7 @@ function updateGroup() {
                                 <CreatePost :group="group"/>
                                 <PostList v-if="posts.data.length" :posts="posts.data" class="flex-1"/>
                                 <div v-else class="py-8 text-center dark:text-gray-100">
-                                    There are no posts in this group. Be the first and create it.
+                                    There are no posts in this group. Be the first to create one.
                                 </div>
                             </template>
                             <div v-else class="py-8 text-center dark:text-gray-100">
